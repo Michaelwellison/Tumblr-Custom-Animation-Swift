@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E62D7375-8414-45FA-8FE9-D500198B682B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TumblrSwift</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>019C90A9ECFC68468031DC7C7DB1B4A67659BC7B</key>
+		<string>https://github.com/Michaelwellison/Tumblr-Custom-Animation-Swift.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TumblrSwift.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>019C90A9ECFC68468031DC7C7DB1B4A67659BC7B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Michaelwellison/Tumblr-Custom-Animation-Swift.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>019C90A9ECFC68468031DC7C7DB1B4A67659BC7B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>019C90A9ECFC68468031DC7C7DB1B4A67659BC7B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TumblrSwift</string>
+		</dict>
+	</array>
+</dict>
+</plist>

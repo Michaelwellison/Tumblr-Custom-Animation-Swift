@@ -13,6 +13,11 @@
 		D5C6B04019E9FEB8004D2B52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5C6B03F19E9FEB8004D2B52 /* Images.xcassets */; };
 		D5C6B04319E9FEB8004D2B52 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C6B04119E9FEB8004D2B52 /* LaunchScreen.xib */; };
 		D5C6B04F19E9FEB8004D2B52 /* TumblrSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C6B04E19E9FEB8004D2B52 /* TumblrSwiftTests.swift */; };
+		D5C6B05919EA2C7B004D2B52 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C6B05819EA2C7B004D2B52 /* HomeViewController.swift */; };
+		D5C6B05B19EA2CF8004D2B52 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C6B05A19EA2CF8004D2B52 /* SearchViewController.swift */; };
+		D5C6B05D19EA2EBB004D2B52 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C6B05C19EA2EBB004D2B52 /* ComposeViewController.swift */; };
+		D5C6B05F19EA2EE8004D2B52 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C6B05E19EA2EE8004D2B52 /* AccountViewController.swift */; };
+		D5C6B06119EA2F81004D2B52 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C6B06019EA2F81004D2B52 /* TrendingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		D5C6B04819E9FEB8004D2B52 /* TumblrSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumblrSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C6B04D19E9FEB8004D2B52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5C6B04E19E9FEB8004D2B52 /* TumblrSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblrSwiftTests.swift; sourceTree = "<group>"; };
+		D5C6B05819EA2C7B004D2B52 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D5C6B05A19EA2CF8004D2B52 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D5C6B05C19EA2EBB004D2B52 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		D5C6B05E19EA2EE8004D2B52 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		D5C6B06019EA2F81004D2B52 /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,11 @@
 				D5C6B03819E9FEB8004D2B52 /* AppDelegate.swift */,
 				D5C6B03A19E9FEB8004D2B52 /* ViewController.swift */,
 				D5C6B03C19E9FEB8004D2B52 /* Main.storyboard */,
+				D5C6B06019EA2F81004D2B52 /* TrendingViewController.swift */,
+				D5C6B05E19EA2EE8004D2B52 /* AccountViewController.swift */,
+				D5C6B05C19EA2EBB004D2B52 /* ComposeViewController.swift */,
+				D5C6B05A19EA2CF8004D2B52 /* SearchViewController.swift */,
+				D5C6B05819EA2C7B004D2B52 /* HomeViewController.swift */,
 				D5C6B03F19E9FEB8004D2B52 /* Images.xcassets */,
 				D5C6B04119E9FEB8004D2B52 /* LaunchScreen.xib */,
 				D5C6B03619E9FEB8004D2B52 /* Supporting Files */,
@@ -212,8 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C6B06119EA2F81004D2B52 /* TrendingViewController.swift in Sources */,
+				D5C6B05D19EA2EBB004D2B52 /* ComposeViewController.swift in Sources */,
 				D5C6B03B19E9FEB8004D2B52 /* ViewController.swift in Sources */,
+				D5C6B05F19EA2EE8004D2B52 /* AccountViewController.swift in Sources */,
 				D5C6B03919E9FEB8004D2B52 /* AppDelegate.swift in Sources */,
+				D5C6B05B19EA2CF8004D2B52 /* SearchViewController.swift in Sources */,
+				D5C6B05919EA2C7B004D2B52 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
