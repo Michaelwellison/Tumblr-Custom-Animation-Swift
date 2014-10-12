@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HKp-Vt-c4M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--Home View Controller-->
         <scene sceneID="sIO-5s-NVa">
             <objects>
-                <viewController id="BMT-iU-b6j" customClass="HomeViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BMT-iU-b6j" customClass="HomeViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tpD-fL-hv2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
         <!--Search View Controller-->
         <scene sceneID="dNq-vu-Eob">
             <objects>
-                <viewController id="y56-NQ-3bb" customClass="SearchViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="y56-NQ-3bb" customClass="SearchViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EaQ-7C-nIi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +55,7 @@
         <!--Compose View Controller-->
         <scene sceneID="rXL-zm-j17">
             <objects>
-                <viewController id="EfL-fb-dqr" customClass="ComposeViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComposeViewController" id="EfL-fb-dqr" customClass="ComposeViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" alpha="0.84999999999999987" contentMode="scaleToFill" id="w5K-xv-69X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +102,7 @@
         <!--Account View Controller-->
         <scene sceneID="cHW-WS-abY">
             <objects>
-                <viewController id="Gdt-SQ-Hg9" customClass="AccountViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" id="Gdt-SQ-Hg9" customClass="AccountViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vXb-gQ-nNa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +122,7 @@
         <!--Trending View Controller-->
         <scene sceneID="Z81-mh-HJN">
             <objects>
-                <viewController id="HKp-Vt-c4M" customClass="TrendingViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrendingViewController" id="HKp-Vt-c4M" customClass="TrendingViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u7b-QD-0GH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,6 +168,9 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="home_selected_icon"/>
+                                        <connections>
+                                            <action selector="onHomeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sQQ-BS-fH6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zrk-U7-qb9">
                                         <rect key="frame" x="259" y="4" width="35" height="35"/>
@@ -176,6 +179,9 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="trending_selected_icon"/>
+                                        <connections>
+                                            <action selector="onTrendingButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YYc-1m-ihG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QmQ-Mc-BMP">
                                         <rect key="frame" x="207" y="4" width="35" height="35"/>
@@ -184,6 +190,9 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="account_selected_icon"/>
+                                        <connections>
+                                            <action selector="onAccountButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GNV-Im-dZL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BBb-Dw-ujK">
                                         <rect key="frame" x="130" y="4" width="50" height="35"/>
@@ -192,6 +201,9 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="home_selected_icon"/>
+                                        <connections>
+                                            <action selector="onComposeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FVR-9S-v3c"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8eK-Nz-Lbc">
                                         <rect key="frame" x="68" y="4" width="35" height="35"/>
@@ -200,6 +212,9 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="search_selected_icon"/>
+                                        <connections>
+                                            <action selector="onSearchButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Eno-Ie-SWA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.2627450980392157" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
