@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarViewController: UIViewController {
+class TabBarViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     // MARK: Outlets
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -26,6 +26,7 @@ class TabBarViewController: UIViewController {
     var trendingViewController : UIViewController!
     var pressedButton : UIButton!
     var selectedViewController : UIViewController!
+    var isPresenting: Bool = true
     
     // MARK: View Lifecycle
     override func viewDidLoad() {
@@ -74,11 +75,12 @@ class TabBarViewController: UIViewController {
             searchViewController.didMoveToParentViewController(self)
             
         } else if composeButton.selected == true {
-            composeViewController.view.frame = scrollView.frame
-            self.addChildViewController(composeViewController)
-            scrollView.addSubview(composeViewController.view)
-            composeViewController.didMoveToParentViewController(self)
+          //  composeViewController.view.frame = view.frame
+            // self.addChildViewController(composeViewController)
+            // view.addSubview(composeViewController.view)
+            // composeViewController.didMoveToParentViewController(self)
             composeButton.selected = false
+            performSegueWithIdentifier("composeViewSegue", sender: self)
             
         } else if accountButton.selected == true {
             accountViewController.view.frame = scrollView.frame
@@ -103,5 +105,53 @@ class TabBarViewController: UIViewController {
         homeViewController.didMoveToParentViewController(self)
     }
 
+    // MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destinationViewController = segue.destinationViewController as ComposeViewController
+        destinationViewController.modalPresentationStyle = .Custom
+        destinationViewController.transitioningDelegate = self
+    }
+    
+    // MARK: Transition Delegate Methods
+    
+    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        // The value here should be the duration of the animations scheduled in the animationTransition method
+        return 0.4
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        println("animating transition")
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        if (isPresenting) {
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                toViewController.view.alpha = 1
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+            }
+        } else {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                fromViewController.view.alpha = 0
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+            }
+        }
+    }
 }
 

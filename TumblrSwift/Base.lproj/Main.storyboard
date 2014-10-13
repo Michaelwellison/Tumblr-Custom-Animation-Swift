@@ -107,6 +107,9 @@
                                 <state key="normal" image="nevermind">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNevermindButton:" destination="EfL-fb-dqr" eventType="touchUpInside" id="voX-R2-55f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.19215688109397888" green="0.26666668057441711" blue="0.364705890417099" alpha="1" colorSpace="deviceRGB"/>
@@ -251,6 +254,7 @@
                         <outlet property="scrollView" destination="8WV-dB-fRR" id="Wl0-Ee-AOM"/>
                         <outlet property="searchButton" destination="8eK-Nz-Lbc" id="38D-ao-kfn"/>
                         <outlet property="trendingButton" destination="zrk-U7-qb9" id="blt-Eq-uc6"/>
+                        <segue destination="EfL-fb-dqr" kind="custom" identifier="composeViewSegue" id="85c-aE-kBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
