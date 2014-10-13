@@ -10,7 +10,8 @@ import UIKit
 
 class TabBarViewController: UIViewController {
     // MARK: Outlets
-    @IBOutlet weak var contentView: UIView!
+
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: Variables
     var homeViewController : UIViewController!
@@ -30,8 +31,15 @@ class TabBarViewController: UIViewController {
         accountViewController = storyboard.instantiateViewControllerWithIdentifier("AccountViewController") as UIViewController
         trendingViewController = storyboard.instantiateViewControllerWithIdentifier("TrendingViewController") as UIViewController
         
-        onHomeButton(self)
         
+        
+        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height)
+
+        
+        
+        
+        
+        onHomeButton(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,29 +49,34 @@ class TabBarViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func onHomeButton(sender: AnyObject) {
-        homeViewController.view.frame = contentView.frame
-        contentView.addSubview(homeViewController.view)
+        homeViewController.view.frame = scrollView.frame
+        self.addChildViewController(homeViewController)
+        scrollView.addSubview(homeViewController.view)
+        homeViewController.didMoveToParentViewController(self)
+        
     }
 
     
     @IBAction func onSearchButton(sender: UIButton) {
-        searchViewController.view.frame = contentView.frame
-        contentView.addSubview(searchViewController.view)
+        searchViewController.view.frame = scrollView.frame
+        scrollView.addSubview(searchViewController.view)
     }
     
     @IBAction func onComposeButton(sender: UIButton) {
-        composeViewController.view.frame = contentView.frame
-        contentView.addSubview(composeViewController.view)
+        composeViewController.view.frame = scrollView.frame
+        scrollView.addSubview(composeViewController.view)
+
     }
    
     @IBAction func onAccountButton(sender: UIButton) {
-        accountViewController.view.frame = contentView.frame
-        contentView.addSubview(accountViewController.view)
+        accountViewController.view.frame = scrollView.frame
+        scrollView.addSubview(accountViewController.view)
     }
    
     @IBAction func onTrendingButton(sender: UIButton) {
-        trendingViewController.view.frame = contentView.frame
-        contentView.addSubview(trendingViewController.view)
+        trendingViewController.view.frame = scrollView.frame
+        scrollView.addSubview(trendingViewController.view)
+        
     }
     
 

@@ -10,10 +10,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageContainerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        scrollView.contentSize = imageContainerView.frame.size
+        scrollView.frame = CGRect(x: 0, y: 0, width: 320, height: 524)
+    
+        println(scrollView.frame.height)
     }
 
     override func didReceiveMemoryWarning() {
