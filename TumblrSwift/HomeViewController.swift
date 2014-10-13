@@ -18,8 +18,6 @@ class HomeViewController: UIViewController {
         
         scrollView.contentSize = imageContainerView.frame.size
         scrollView.frame = CGRect(x: 0, y: 0, width: 320, height: 524)
-    
-        println(scrollView.frame.height)
     }
 
     override func didReceiveMemoryWarning() {

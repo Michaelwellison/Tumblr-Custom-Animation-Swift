@@ -182,7 +182,7 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qxi-Va-9Ca">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qxi-Va-9Ca" userLabel="Home Button">
                                         <rect key="frame" x="16" y="4" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="home_icon">
@@ -191,9 +191,10 @@
                                         <state key="selected" image="home_selected_icon"/>
                                         <connections>
                                             <action selector="onHomeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sQQ-BS-fH6"/>
+                                            <action selector="onTabBarButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IDw-as-gWI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zrk-U7-qb9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zrk-U7-qb9" userLabel="Trending Button">
                                         <rect key="frame" x="259" y="4" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="trending_icon">
@@ -201,10 +202,10 @@
                                         </state>
                                         <state key="selected" image="trending_selected_icon"/>
                                         <connections>
-                                            <action selector="onTrendingButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YYc-1m-ihG"/>
+                                            <action selector="onTabBarButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eFj-na-j89"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QmQ-Mc-BMP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QmQ-Mc-BMP" userLabel="Account Button">
                                         <rect key="frame" x="207" y="4" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="account_icon">
@@ -212,10 +213,10 @@
                                         </state>
                                         <state key="selected" image="account_selected_icon"/>
                                         <connections>
-                                            <action selector="onAccountButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GNV-Im-dZL"/>
+                                            <action selector="onTabBarButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tNq-sr-gw8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BBb-Dw-ujK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BBb-Dw-ujK" userLabel="Compose Button">
                                         <rect key="frame" x="130" y="4" width="50" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="compose_button">
@@ -223,10 +224,10 @@
                                         </state>
                                         <state key="selected" image="home_selected_icon"/>
                                         <connections>
-                                            <action selector="onComposeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FVR-9S-v3c"/>
+                                            <action selector="onTabBarButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hfy-u5-9RD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8eK-Nz-Lbc">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8eK-Nz-Lbc" userLabel="Search Button">
                                         <rect key="frame" x="68" y="4" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="search_icon">
@@ -234,7 +235,7 @@
                                         </state>
                                         <state key="selected" image="search_selected_icon"/>
                                         <connections>
-                                            <action selector="onSearchButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Eno-Ie-SWA"/>
+                                            <action selector="onTabBarButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ENV-dJ-RE3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -244,7 +245,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="accountButton" destination="QmQ-Mc-BMP" id="iyu-rk-0XU"/>
+                        <outlet property="composeButton" destination="BBb-Dw-ujK" id="dz2-Zi-Bvo"/>
+                        <outlet property="homeButton" destination="qxi-Va-9Ca" id="jLp-f7-fbi"/>
                         <outlet property="scrollView" destination="8WV-dB-fRR" id="Wl0-Ee-AOM"/>
+                        <outlet property="searchButton" destination="8eK-Nz-Lbc" id="38D-ao-kfn"/>
+                        <outlet property="trendingButton" destination="zrk-U7-qb9" id="blt-Eq-uc6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
