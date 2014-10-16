@@ -78,27 +78,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text_icon" id="GDw-BZ-mEW">
-                                <rect key="frame" x="36" y="199" width="75" height="96"/>
+                                <rect key="frame" x="26" y="199" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo_icon" id="4nQ-SR-dVD">
-                                <rect key="frame" x="134" y="199" width="75" height="96"/>
+                                <rect key="frame" x="124" y="199" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quote_icon" id="q1m-fJ-PlQ">
-                                <rect key="frame" x="229" y="199" width="75" height="96"/>
+                                <rect key="frame" x="219" y="199" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_icon" id="nJ7-JI-KZa">
-                                <rect key="frame" x="229" y="313" width="75" height="96"/>
+                                <rect key="frame" x="219" y="313" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_icon" id="w0R-Gk-mhv">
-                                <rect key="frame" x="134" y="313" width="75" height="96"/>
+                                <rect key="frame" x="124" y="313" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link_icon" id="iEB-5K-qQn">
-                                <rect key="frame" x="36" y="313" width="75" height="96"/>
+                                <rect key="frame" x="26" y="313" width="75" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H2C-J2-6Jj">
@@ -114,6 +114,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.19215688109397888" green="0.26666668057441711" blue="0.364705890417099" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="chatImageView" destination="w0R-Gk-mhv" id="1HF-ad-tzo"/>
+                        <outlet property="linkImageView" destination="iEB-5K-qQn" id="ELR-Pu-pmZ"/>
+                        <outlet property="photoImageView" destination="4nQ-SR-dVD" id="RBC-Pw-jr6"/>
+                        <outlet property="quoteImageView" destination="q1m-fJ-PlQ" id="Zo3-XW-htT"/>
+                        <outlet property="textImageView" destination="GDw-BZ-mEW" id="2mT-bg-Y9y"/>
+                        <outlet property="videoImageView" destination="nJ7-JI-KZa" id="2Cd-CI-J3B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j33-Ss-28i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

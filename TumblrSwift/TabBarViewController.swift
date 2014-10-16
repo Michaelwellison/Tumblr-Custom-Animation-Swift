@@ -110,7 +110,7 @@ class TabBarViewController: UIViewController, UIViewControllerTransitioningDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destinationViewController = segue.destinationViewController as ComposeViewController
         destinationViewController.modalPresentationStyle = .Custom
-        destinationViewController.transitioningDelegate = self
+//        destinationViewController.transitioningDelegate = self
     }
     
     // MARK: Transition Delegate Methods
