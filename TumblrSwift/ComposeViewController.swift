@@ -11,6 +11,8 @@ import UIKit
 class ComposeViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
 
     // MARK: Outlets
+   
+    @IBOutlet var imagesContainerView: UIView!
     @IBOutlet weak var textImageView: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var quoteImageView: UIImageView!
@@ -23,8 +25,8 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        imagesContainerView.backgroundColor = UIColor(red: 0.2, green: 0.263, blue: 0.333, alpha: 0.75)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -68,27 +70,14 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
         
         if (isPresenting) {
             containerView.addSubview(toViewController.view)
-            containerView.alpha = 0.9
-            var textImageViewCopy = textImageView
+            containerView.backgroundColor = UIColor(red: 0.2, green: 0.263, blue: 0.333, alpha: 0.75)
             
-            textImageViewCopy.alpha = 1
-            containerView.addSubview(textImageViewCopy)
-            
-            var chatImageViewCopy = chatImageView
-            chatImageViewCopy.alpha = 1
-            containerView.addSubview(chatImageViewCopy)
     
-            photoImageView.alpha = 1
-            linkImageView.alpha = 1
-            chatImageView.alpha = 1
-            quoteImageView.alpha = 1
-            videoImageView.alpha = 1
-            
-            
             UIView.animateWithDuration(0.4, animations: { () -> Void in
             
             
                 }) { (finished: Bool) -> Void in
+            
                     transitionContext.completeTransition(true)
             }
         } else {

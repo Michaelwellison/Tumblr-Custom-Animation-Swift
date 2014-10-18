@@ -73,7 +73,7 @@
         <scene sceneID="rXL-zm-j17">
             <objects>
                 <viewController storyboardIdentifier="ComposeViewController" id="EfL-fb-dqr" customClass="ComposeViewController" customModule="TumblrSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.84999999999999987" contentMode="scaleToFill" id="w5K-xv-69X">
+                    <view key="view" contentMode="scaleToFill" id="w5K-xv-69X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -116,6 +116,7 @@
                     </view>
                     <connections>
                         <outlet property="chatImageView" destination="w0R-Gk-mhv" id="1HF-ad-tzo"/>
+                        <outlet property="imagesContainerView" destination="w5K-xv-69X" id="eU7-xJ-FZp"/>
                         <outlet property="linkImageView" destination="iEB-5K-qQn" id="ELR-Pu-pmZ"/>
                         <outlet property="photoImageView" destination="4nQ-SR-dVD" id="RBC-Pw-jr6"/>
                         <outlet property="quoteImageView" destination="q1m-fJ-PlQ" id="Zo3-XW-htT"/>
