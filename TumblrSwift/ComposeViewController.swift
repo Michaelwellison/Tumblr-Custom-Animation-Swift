@@ -83,11 +83,15 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
         if (isPresenting) {
             
             // Copy the Compose View Controller in a temp View and put it on the window
-            var tempView = UIView(frame: imagesContainerView.frame)
+            
+            var tempView = UIVisualEffectView(frame: imagesContainerView.frame)
+            tempView.frame = imagesContainerView.frame
             tempView.backgroundColor = UIColor(red: 0.2, green: 0.263, blue: 0.333, alpha: 0.75)
+            
             var window = UIApplication.sharedApplication().keyWindow
             window.addSubview(tempView)
             containerView.addSubview(toViewController.view)
+
             
             // Create 6 copys of the image views and put them on the temp view
             
@@ -158,7 +162,6 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
                 }
                 }, completion: { (finished: Bool) -> Void in
                     fromViewController.view.removeFromSuperview()
-                    
                     transitionContext.completeTransition(true)
             })
         }
