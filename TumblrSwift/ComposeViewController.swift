@@ -87,7 +87,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             window.addSubview(tempView)
             containerView.addSubview(toViewController.view)
             
-            // Create 6 copys of of the image views and put them on the temp view
+            // Create 6 copys of the image views and put them on the temp view
             iconImageViews = [textImageView, photoImageView, quoteImageView, linkImageView, chatImageView, videoImageView]
             
             for item in iconImageViews {
@@ -96,22 +96,9 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
                 copyImageView.image = item.image
                 tempView.addSubview(copyImageView)
                 iconImageCopyViews.append(copyImageView)
-                
             }
-
-//            var textImageViewCopy = UIImageView(frame: textImageView.frame)
-//            textImageViewCopy.frame.origin.y = 568
-//            textImageViewCopy.image = textImageView.image
-//            tempView.addSubview(textImageViewCopy)
-//            
-//            var photoImageViewCopy = UIImageView(frame: photoImageView.frame)
-//            photoImageViewCopy.frame.origin.y = 568
-//            photoImageViewCopy.image = photoImageView.image
-//            tempView.addSubview(photoImageViewCopy)
-            println(self.iconImageCopyViews[5])
             
             toViewController.view.alpha = 0
-            
             
             // Animate the icons into the final position using spring animation
             // Remove the view from the window
@@ -120,9 +107,13 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
                 
                 self.iconImageCopyViews[1].frame.origin.y = self.iconImageViews[1].frame.origin.y
                 
-                UIView.animateWithDuration(self.animationDuration, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                    self.iconImageCopyViews[0].frame.origin.y = self.iconImageViews[0].frame.origin.y
-                }, completion: nil)
+                for (index, imageCopy) in enumerate(self.iconImageCopyViews) {
+                    UIView.animateWithDuration(self.animationDuration, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                        self.iconImageCopyViews[index].frame.origin.y = self.iconImageViews[index].frame.origin.y
+                        }, completion: nil)
+                }
+                
+               
 
             }), { (finished: Bool) -> Void in
                 toViewController.view.alpha = 1
