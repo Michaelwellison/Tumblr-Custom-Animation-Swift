@@ -74,11 +74,11 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        println("animating transition")
         
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        iconImageViews = [textImageView, photoImageView, quoteImageView, linkImageView, chatImageView, videoImageView]
         
         if (isPresenting) {
             
@@ -90,7 +90,6 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             containerView.addSubview(toViewController.view)
             
             // Create 6 copys of the image views and put them on the temp view
-            iconImageViews = [textImageView, photoImageView, quoteImageView, linkImageView, chatImageView, videoImageView]
             
             for item in iconImageViews {
                 var copyImageView = UIImageView(frame: item.frame)
@@ -110,7 +109,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
                 self.iconImageCopyViews[1].frame.origin.y = self.iconImageViews[1].frame.origin.y
                 
                 for (index, imageCopy) in enumerate(self.iconImageCopyViews) {
-                    UIView.animateWithDuration(self.animationDuration, delay: self.delays[index], usingSpringWithDamping: self.damping, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                    UIView.animateWithDuration(self.animationDuration, delay: self.delays[index], usingSpringWithDamping: self.damping, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                         self.iconImageCopyViews[index].frame.origin.y = self.iconImageViews[index].frame.origin.y
                         }, completion: nil)
                 }
@@ -123,17 +122,44 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             
             } else {
             
+            // Copy the Compose View Controller in a temp View and put it on the window
+
+            var tempView = UIView(frame: imagesContainerView.frame)
+            tempView.backgroundColor = UIColor(red: 0.2, green: 0.263, blue: 0.333, alpha: 0.75)
+            var window = UIApplication.sharedApplication().keyWindow
+            window.addSubview(tempView)
+            containerView.addSubview(fromViewController.view)
             
-            UIView.animateWithDuration(animationDuration, delay: delays[0], options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+            // Create 6 copys of the image views and put them on the temp view
+            
+            for (index, copyImage) in enumerate(iconImageCopyViews) {
+                
+                copyImage.frame.origin.y = iconImageViews[index].frame.origin.y
+                tempView.addSubview(copyImage)
+            }
+            
+            fromViewController.view.alpha = 0
+            
+            // Animate views to top of screen
+            
+            UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 
                 for var i = 0; i < self.iconImageCopyViews.count; i++ {
-                    UIView.animateWithDuration(self.animationDuration, delay: self.delays[i], options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                        self.iconImageCopyViews[1].transform = CGAffineTransformMakeTranslation(0.0, -400)
-                    }, completion: nil)
+                    UIView.animateWithDuration(self.animationDuration, delay: self.delays[i], options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                        
+                        self.iconImageCopyViews[i].transform = CGAffineTransformMakeTranslation(0.0, -800)
+                        
+                        }, completion: { (finished: Bool) -> Void in
+                            
+                            if i == 6 {
+                                tempView.removeFromSuperview()
+                            }
+                    })
                 }
                 }, completion: { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
+                    
+                    transitionContext.completeTransition(true)
             })
         }
     }
