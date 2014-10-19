@@ -23,6 +23,8 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     // MARK: Variables
     var isPresenting: Bool = true
     let animationDuration : NSTimeInterval = 0.4
+    var iconImageViews : [UIImageView] = []
+    var iconImageCopyViews : [UIImageView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,22 +80,35 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
         
         if (isPresenting) {
             
-            // Copy the Compose View Controller View and put it on the window
+            // Copy the Compose View Controller in a temp View and put it on the window
             var tempView = UIView(frame: imagesContainerView.frame)
             tempView.backgroundColor = UIColor(red: 0.2, green: 0.263, blue: 0.333, alpha: 0.75)
             var window = UIApplication.sharedApplication().keyWindow
             window.addSubview(tempView)
             containerView.addSubview(toViewController.view)
             
-            var textImageViewCopy = UIImageView(frame: textImageView.frame)
-            textImageViewCopy.frame.origin.y = 568
-            textImageViewCopy.image = textImageView.image
-            tempView.addSubview(textImageViewCopy)
+            // Create 6 copys of of the image views and put them on the temp view
+            iconImageViews = [textImageView, photoImageView, quoteImageView, linkImageView, chatImageView, videoImageView]
             
-            var photoImageViewCopy = UIImageView(frame: photoImageView.frame)
-            photoImageViewCopy.frame.origin.y = 568
-            photoImageViewCopy.image = photoImageView.image
-            tempView.addSubview(photoImageViewCopy)
+            for item in iconImageViews {
+                var copyImageView = UIImageView(frame: item.frame)
+                copyImageView.frame.origin.y = 568
+                copyImageView.image = item.image
+                tempView.addSubview(copyImageView)
+                iconImageCopyViews.append(copyImageView)
+                
+            }
+
+//            var textImageViewCopy = UIImageView(frame: textImageView.frame)
+//            textImageViewCopy.frame.origin.y = 568
+//            textImageViewCopy.image = textImageView.image
+//            tempView.addSubview(textImageViewCopy)
+//            
+//            var photoImageViewCopy = UIImageView(frame: photoImageView.frame)
+//            photoImageViewCopy.frame.origin.y = 568
+//            photoImageViewCopy.image = photoImageView.image
+//            tempView.addSubview(photoImageViewCopy)
+            println(self.iconImageCopyViews[5])
             
             toViewController.view.alpha = 0
             
@@ -103,10 +118,10 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             
             UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: ({
                 
-                photoImageViewCopy.frame.origin.y = self.photoImageView.frame.origin.y
+                self.iconImageCopyViews[1].frame.origin.y = self.iconImageViews[1].frame.origin.y
                 
                 UIView.animateWithDuration(self.animationDuration, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                    textImageViewCopy.frame.origin.y = self.textImageView.frame.origin.y
+                    self.iconImageCopyViews[0].frame.origin.y = self.iconImageViews[0].frame.origin.y
                 }, completion: nil)
 
             }), { (finished: Bool) -> Void in
