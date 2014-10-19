@@ -22,6 +22,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     
     // MARK: Variables
     var isPresenting: Bool = true
+    let animationDuration : NSTimeInterval = 0.4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,13 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     @IBAction func onNevermindButton(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    // MARK: Navigation
+    
+    // Custom Functions
+    
+    func bounceTextImageViewIn() {
+        
+    }
+
     
     // MARK: Transition Delegate Methods
     
@@ -59,29 +66,57 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         // The value here should be the duration of the animations scheduled in the animationTransition method
-        return 0.4
+        return animationDuration
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         println("animating transition")
+        
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
         if (isPresenting) {
+            
+            // Copy the Compose View Controller View and put it on the window
+            var tempView = UIView(frame: imagesContainerView.frame)
+            tempView.backgroundColor = UIColor(red: 0.2, green: 0.263, blue: 0.333, alpha: 0.75)
+            var window = UIApplication.sharedApplication().keyWindow
+            window.addSubview(tempView)
             containerView.addSubview(toViewController.view)
-            containerView.backgroundColor = UIColor(red: 0.2, green: 0.263, blue: 0.333, alpha: 0.75)
             
-    
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
+            var textImageViewCopy = UIImageView(frame: textImageView.frame)
+            textImageViewCopy.frame.origin.y = 568
+            textImageViewCopy.image = textImageView.image
+            tempView.addSubview(textImageViewCopy)
+            
+            var photoImageViewCopy = UIImageView(frame: photoImageView.frame)
+            photoImageViewCopy.frame.origin.y = 568
+            photoImageViewCopy.image = photoImageView.image
+            tempView.addSubview(photoImageViewCopy)
+            
+            toViewController.view.alpha = 0
             
             
-                }) { (finished: Bool) -> Void in
+            // Animate the icons into the final position using spring animation
+            // Remove the view from the window
             
-                    transitionContext.completeTransition(true)
-            }
-        } else {
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
+            UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: ({
+                
+                photoImageViewCopy.frame.origin.y = self.photoImageView.frame.origin.y
+                
+                UIView.animateWithDuration(self.animationDuration, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                    textImageViewCopy.frame.origin.y = self.textImageView.frame.origin.y
+                }, completion: nil)
+
+            }), { (finished: Bool) -> Void in
+                toViewController.view.alpha = 1
+                tempView.removeFromSuperview()
+                transitionContext.completeTransition(true)
+                })
+            
+            } else {
+            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
                 fromViewController.view.alpha = 0
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
@@ -89,5 +124,7 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             }
         }
     }
+    
+    // MARK: Navigation
 }
 
