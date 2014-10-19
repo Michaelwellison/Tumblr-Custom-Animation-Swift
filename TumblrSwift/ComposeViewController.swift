@@ -22,7 +22,9 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
     
     // MARK: Variables
     var isPresenting: Bool = true
-    let animationDuration : NSTimeInterval = 0.4
+    let animationDuration : NSTimeInterval = 0.6
+    let damping : CGFloat = 0.6
+    let delays : [NSTimeInterval] = [0.1, 0, 0.15, 0.25, 0.20, 0.25]
     var iconImageViews : [UIImageView] = []
     var iconImageCopyViews : [UIImageView] = []
     
@@ -103,17 +105,15 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
             // Animate the icons into the final position using spring animation
             // Remove the view from the window
             
-            UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: ({
+            UIView.animateWithDuration(animationDuration, delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: ({
                 
                 self.iconImageCopyViews[1].frame.origin.y = self.iconImageViews[1].frame.origin.y
                 
                 for (index, imageCopy) in enumerate(self.iconImageCopyViews) {
-                    UIView.animateWithDuration(self.animationDuration, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                    UIView.animateWithDuration(self.animationDuration, delay: self.delays[index], usingSpringWithDamping: self.damping, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                         self.iconImageCopyViews[index].frame.origin.y = self.iconImageViews[index].frame.origin.y
                         }, completion: nil)
                 }
-                
-               
 
             }), { (finished: Bool) -> Void in
                 toViewController.view.alpha = 1
@@ -122,12 +122,19 @@ class ComposeViewController: UIViewController, UIViewControllerTransitioningDele
                 })
             
             } else {
-            UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-                fromViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
+            
+            
+            UIView.animateWithDuration(animationDuration, delay: delays[0], options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                
+                for var i = 0; i < self.iconImageCopyViews.count; i++ {
+                    UIView.animateWithDuration(self.animationDuration, delay: self.delays[i], options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                        self.iconImageCopyViews[1].transform = CGAffineTransformMakeTranslation(0.0, -400)
+                    }, completion: nil)
+                }
+                }, completion: { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
-            }
+            })
         }
     }
     
